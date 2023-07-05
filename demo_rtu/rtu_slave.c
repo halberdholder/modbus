@@ -6,6 +6,8 @@
 #include <modbus.h>
 #include <errno.h>
 
+#include "config.h"
+
 int main(void)
 {
     int rc = 0;
@@ -14,7 +16,7 @@ int main(void)
     uint8_t query[MODBUS_TCP_MAX_ADU_LENGTH];
 
     // 打开端口: 端口，波特率，校验位，数据位，停止位
-    ctx = modbus_new_rtu("/dev/ttyUSB1", 9600, 'N', 8, 1);
+    ctx = modbus_new_rtu("/dev/ttyUSB1", BAUD_RATE, 'N', 8, 1);
     // 设置从机地址
     modbus_set_slave(ctx, 1);
     // 设置串口模式
