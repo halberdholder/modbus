@@ -73,7 +73,7 @@ int main(void)
     modbus_t *ctx = NULL;
 
     //打开端口: 端口，波特率，校验位，数据位，停止位
-    ctx = modbus_new_rtu("/dev/ttyUSB0", BAUD_RATE, 'N', 8, 1);
+    ctx = modbus_new_rtu(MASTER_DEV, BAUD_RATE, 'N', 8, 1);
     //设置从机地址
     modbus_set_slave(ctx, 1);
     //设置串口模式(可选)
